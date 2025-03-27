@@ -24,7 +24,7 @@ function Pokedex() {
 
           <p>Tipos:</p>
           <ul>
-            {informacoesPokemon.types.map((tipo, index) => (
+            {informacoesPokemon.tipos.map((tipo, index) => (
               <li key={index}>{tipo.type.name}</li>
             ))}
           </ul>

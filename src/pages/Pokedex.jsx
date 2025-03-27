@@ -32,7 +32,7 @@ function Pokedex() {
 
   useEffect(() => {
     if (pokemonEncontrado) {
-      const informacoesPokemon = {
+      const novoPokemon = {
         id: pokemonEncontrado.id,
         nome: pokemonEncontrado.name,
         imagem: pokemonEncontrado.sprites.front_default,
@@ -41,9 +41,11 @@ function Pokedex() {
         estatisticas: pokemonEncontrado.stats,
       };
 
+      const pokemonsAtualizados = [...pokemonSalvo, novoPokemon];
+
       localStorage.setItem(
         "informacoesPokemon",
-        JSON.stringify(informacoesPokemon)
+        JSON.stringify(pokemonsAtualizados)
       );
     }
   }, [favoritar]);
@@ -97,12 +99,12 @@ function Pokedex() {
                 </li>
               ))}
             </ul>
+
+            <button onClick={() => setFavoritar(!favoritar)}>
+              {favoritar ? "Favorito" : "Favoritar"}
+            </button>
           </div>
         )}
-
-        <button onClick={() => setFavoritar(!favoritar)}>
-          {favoritar ? "Favorito" : "Favoritar"}
-        </button>
       </div>
       <Footer />
     </>
