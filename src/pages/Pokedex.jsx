@@ -10,6 +10,7 @@ function Pokedex() {
   const [pokemonSalvo, setPokemonSalvo] = useState(
     () => JSON.parse(localStorage.getItem("informacoesPokemon")) || []
   );
+  const [favoritar, setFavoritar] = useState(false);
 
   async function fetchPokemons(input) {
     input.preventDefault();
@@ -97,6 +98,12 @@ function Pokedex() {
           </ul>
         </div>
       )}
+      
+      <button
+        onClick={() => setFavoritar(!favoritar)}
+      >
+        {favoritar ? "Favorito" : "Favoritar"}
+      </button>
       <Footer />
     </>
   );

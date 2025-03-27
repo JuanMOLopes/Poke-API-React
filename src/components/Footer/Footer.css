@@ -1,5 +1,5 @@
 footer {
-  background-color: #ff0000;
+  background-color: #e8dddd;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ footer {
 }
 
 footer a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -22,13 +22,13 @@ footer img {
 }
 
 footer p {
-  color: #fff;
+  color: #000000;
   margin: 0.5rem 0;
   font-size: 0.9rem;
 }
 
 footer strong {
-  color: #fff;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -37,11 +37,11 @@ footer div > div {
 }
 
 footer h3 {
-  color: #fff;
+  color: #000000;
 }
 
 footer li {
-  color: #fff;
+  color: #000000;
 }
 
 .links {
