@@ -7,10 +7,11 @@ function Pokedex() {
   const [pokemonDigitado, setPokemonDigitado] = useState("");
   const [pokemonEncontrado, setPokemonEncontrado] = useState(null);
   const [erro, setErro] = useState("");
+  const [favoritar, setFavoritar] = useState(false);
 
   async function fetchPokemons(input) {
     input.preventDefault();
-    
+
     try {
       const resposta = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemonDigitado.toLowerCase()}`
@@ -33,50 +34,56 @@ function Pokedex() {
       <Header />
       <Navbar />
 
-        <h2>Capture um pokémon!</h2>
-        <form onSubmit={fetchPokemons}>
-          <input
-            type="text"
-            value={pokemonDigitado}
-            onChange={(input) => setPokemonDigitado(input.target.value)}
-            placeholder="Digite um número ou o nome de um pokémon"
-          />
-          <button type="submit">Buscar</button>
-        </form>
+      <h2>Capture um pokémon!</h2>
+      <form onSubmit={fetchPokemons}>
+        <input
+          type="text"
+          value={pokemonDigitado}
+          onChange={(input) => setPokemonDigitado(input.target.value)}
+          placeholder="Digite um número ou o nome de um pokémon"
+        />
+        <button type="submit">Buscar</button>
+      </form>
 
-        {pokemonEncontrado && (
-          <div>
-            <h3>{pokemonEncontrado.name} (#{pokemonEncontrado.id})</h3>
-            
-            <img src={pokemonEncontrado.sprites.front_default}/>
-            
-              <p>Tipos:</p>
-              <ul>
-                {pokemonEncontrado.types.map((tipo, index) => (
-                  <li key={index}>{tipo.type.name}</li>
-                ))}
-              </ul>
+      {pokemonEncontrado && (
+        <div>
+          <h3>
+            {pokemonEncontrado.name} (#{pokemonEncontrado.id})
+          </h3>
 
-              <p>Habilidades:</p>
-              <ul>
-                {pokemonEncontrado.abilities.map((habilidade, index) => (
-                  <li key={index}>
-                    {habilidade.ability.name}
-                  </li>
-                ))}
-              </ul>
-            
-              <p>Estatísticas:</p>
-              <ul>
-                {pokemonEncontrado.stats.map((estatistica, index) => (
-                  <li key={index}>
-                    {estatistica.stat.name}: {estatistica.base_stat}
-                  </li>
-                ))}
-              </ul>
-          </div>
-        )}
-      
+          <img src={pokemonEncontrado.sprites.front_default} />
+
+          <p>Tipos:</p>
+          <ul>
+            {pokemonEncontrado.types.map((tipo, index) => (
+              <li key={index}>{tipo.type.name}</li>
+            ))}
+          </ul>
+
+          <p>Habilidades:</p>
+          <ul>
+            {pokemonEncontrado.abilities.map((habilidade, index) => (
+              <li key={index}>{habilidade.ability.name}</li>
+            ))}
+          </ul>
+
+          <p>Estatísticas:</p>
+          <ul>
+            {pokemonEncontrado.stats.map((estatistica, index) => (
+              <li key={index}>
+                {estatistica.stat.name}: {estatistica.base_stat}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <button
+        onClick={() => setFavoritar(!favoritar)}
+        className={favoritar ? "Favorito" : "Favoritar"}
+      >
+        {" "}
+      </button>
+
       <Footer />
     </>
   );
