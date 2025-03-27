@@ -1,15 +1,11 @@
 import "./Header.css";
-import { Link } from "react-router-dom";
+import Titulo from "../../../public/Titulo.png"
 
 function Header() {
   return (
     <>
-      <header>
-        <Link to="/">
-          <img src="" alt="" className="logo"/>
-        </Link>
-
-        <h1>Poké-API</h1>
+      <header>       
+          <img src={Titulo} alt="" className="Logo"/>
       </header>
    </>
   );

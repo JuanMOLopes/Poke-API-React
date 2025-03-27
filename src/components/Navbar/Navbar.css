@@ -5,6 +5,10 @@ nav {
   padding: 1rem;
   background-color: #000000;
   gap: 40px;
+  width: 47.9vw;
+  margin-left: 25rem;
+  border-radius: 20px;
+  filter: opacity(85%);
 }
 
 nav a {
