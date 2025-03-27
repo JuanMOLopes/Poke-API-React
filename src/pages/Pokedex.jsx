@@ -13,6 +13,9 @@ function Pokedex() {
   const [favoritar, setFavoritar] = useState(false);
 
   async function fetchPokemons(input) {
+    if (input === "") {
+      throw new Error("Pokémon não encontrado");
+    }
     input.preventDefault();
 
     try {
