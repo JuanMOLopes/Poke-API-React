@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -7,6 +7,9 @@ function Pokedex() {
   const [pokemonDigitado, setPokemonDigitado] = useState("");
   const [pokemonEncontrado, setPokemonEncontrado] = useState(null);
   const [erro, setErro] = useState("");
+  const [pokemonSalvo, setPokemonSalvo] = useState(
+    () => JSON.parse(localStorage.getItem("informacoesPokemon")) || []
+  );
   const [favoritar, setFavoritar] = useState(false);
 
   async function fetchPokemons(input) {
@@ -26,6 +29,24 @@ function Pokedex() {
       setErro(erro.message);
     }
   }
+
+  useEffect(() => {
+    if (pokemonEncontrado) {
+      const informacoesPokemon = {
+        id: pokemonEncontrado.id,
+        nome: pokemonEncontrado.name,
+        imagem: pokemonEncontrado.sprites.front_default,
+        tipos: pokemonEncontrado.types,
+        habilidades: pokemonEncontrado.abilities,
+        estatisticas: pokemonEncontrado.stats
+      };
+
+      localStorage.setItem(
+        "informacoesPokemon",
+        JSON.stringify(informacoesPokemon)
+      );
+    }
+  }, [favoritar]);
 
   if (erro) return <h2>Erro: {erro}</h2>;
 
@@ -77,13 +98,12 @@ function Pokedex() {
           </ul>
         </div>
       )}
+      
       <button
         onClick={() => setFavoritar(!favoritar)}
-        className={favoritar ? "Favorito" : "Favoritar"}
       >
-        {" "}
+        {favoritar ? "Favorito" : "Favoritar"}
       </button>
-
       <Footer />
     </>
   );
