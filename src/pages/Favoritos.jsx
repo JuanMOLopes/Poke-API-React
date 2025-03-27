@@ -29,7 +29,7 @@ function Pagina2() {
         </div>
       ) : (
         <div>
-          <h2>Pesquise um pokemon</h2>
+          <h2>Adicione um pokemon</h2>
         </div>
     </>
   );
