@@ -3,4 +3,20 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  color: rgb(163, 22, 22);
+  font-family: 'Times New Roman';
+  font-size: larger;
+}
+.Pesquisa {
+  margin-left: 10vw;
+}
+
+input {
+  width:25vw;
+  height:2vw;
+  background-color: rgb(211, 204, 204);
+}
+
+button {
+  background-color: rgb(240, 240, 92);
 }
