@@ -8,7 +8,16 @@ body{
   font-size: larger;
 }
 .Pesquisa {
-  margin-left: 10vw;
+  margin-left: 26vw;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  background-color: rgb(211, 204, 204);
+  width: 49vw;
+  filter: opacity(85%);
+  align-items: center;
+  text-align: center;
+  padding: 10px;
 }
 
 input {
@@ -19,4 +28,6 @@ input {
 
 button {
   background-color: rgb(240, 240, 92);
+  margin-top: 10px;
+  margin-left: 5px;
 }
