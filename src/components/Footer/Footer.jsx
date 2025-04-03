@@ -1,5 +1,5 @@
 import "./Footer.css";
-import Github from "../../../public/GitHub.png";
+import Github from "/GitHub.png";
 
 function Footer() {
   return (

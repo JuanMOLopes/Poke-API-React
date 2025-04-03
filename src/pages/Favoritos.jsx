@@ -20,10 +20,11 @@ function Pokedex() {
     }
   }, [modoEscuro]);
 
-  function removerFavorito(id) {
-    const listaAtualizada = informacoesPokemon.splice(id);
+  function removerFavorito(index) {
+    console.log(index);
+    const listaAtualizada = informacoesPokemon.filter((_, e) => e !== index);
     localStorage.setItem("informacoesPokemon", JSON.stringify(listaAtualizada));
-    window.location.reload();
+    document.location.reload();
   }
 
   return (
@@ -76,7 +77,7 @@ function Pokedex() {
             )}
           </li>
 
-          <button onClick={() => removerFavorito(pokemon.id)}>
+          <button onClick={() => removerFavorito(index)}>
             Remover Favorito
           </button>
         </div>
