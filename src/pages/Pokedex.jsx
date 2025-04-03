@@ -62,12 +62,11 @@ function Pokedex() {
 
   useEffect(() => {
     if (modoEscuro == true) {
-      document.body.classList.add('escuro');
+      document.body.classList.add("escuro");
     } else {
-      document.body.classList.remove('escuro');
+      document.body.classList.remove("escuro");
     }
   }, [modoEscuro]);
-  
 
   if (erro) return <h2>Erro: {erro}</h2>;
 
