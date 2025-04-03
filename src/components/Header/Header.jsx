@@ -1,5 +1,5 @@
 import "./Header.css";
-import Titulo from "../../../public/Titulo.png"
+import Titulo from "/Titulo.png"
 
 function Header() {
   return (
