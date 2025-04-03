@@ -2,21 +2,27 @@ footer {
   background-color: #e8dddd;
   padding: 2rem 1rem;
   width: 47.9vw;
+  /* Deixar o conteudo do container flexivel */
   display: flex;
   flex-direction: column;
+  /*  Dar espaço */
   justify-content: space-between;
   align-items: center;
+  /*  Quebrar linha */
   flex-wrap: wrap;
+  /* Ajusta a distancia */
   gap: 2rem;
   margin-left: 25rem;
   border-radius: 20px;
   filter: opacity(85%);
+  /* Distancia de baixo */
   margin-bottom: 10px;
 }
 
 footer a {
   color: #000000;
   text-decoration: none;
+  /* muda a cor ao passar o mouse por cima */
   transition: color 0.3s ease;
 }
 
