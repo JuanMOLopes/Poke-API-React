@@ -1,12 +1,13 @@
-body{
+body {
   background-image: url("../public/pokemon-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: rgb(163, 22, 22);
-  font-family: 'Times New Roman';
+  font-family: "Times New Roman";
   font-size: larger;
 }
+
 .Pesquisa {
   margin-left: 26vw;
   margin-top: 5px;
@@ -21,8 +22,8 @@ body{
 }
 
 input {
-  width:25vw;
-  height:2vw;
+  width: 25vw;
+  height: 2vw;
   background-color: rgb(211, 204, 204);
 }
 
@@ -30,4 +31,8 @@ button {
   background-color: rgb(240, 240, 92);
   margin-top: 10px;
   margin-left: 5px;
+}
+
+body.escuro {
+  filter: grayscale(1);
 }

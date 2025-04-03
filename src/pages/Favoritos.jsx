@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -7,6 +7,18 @@ function Pokedex() {
   const [informacoesPokemon, setInformacoesPokemon] = useState(
     () => JSON.parse(localStorage.getItem("informacoesPokemon")) || []
   );
+  const [modoEscuro, setModoEscuro] = useState(
+    () => JSON.parse(localStorage.getItem("modoEscuro")) || false
+  );
+
+  localStorage.setItem("modoEscuro", JSON.stringify(modoEscuro));
+  useEffect(() => {
+    if (modoEscuro == true) {
+      document.body.classList.add("escuro");
+    } else {
+      document.body.classList.remove("escuro");
+    }
+  }, [modoEscuro]);
 
   return (
     <>
@@ -15,6 +27,10 @@ function Pokedex() {
 
       <div className="Pesquisa">
         <h2>Pokémons salvos!</h2>
+
+        <button onClick={() => setModoEscuro(!modoEscuro)}>
+          {modoEscuro ? "Modo Claro" : "Modo Escuro"}
+        </button>
       </div>
 
       {informacoesPokemon.map((pokemon, index) => (

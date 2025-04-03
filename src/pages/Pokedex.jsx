@@ -11,12 +11,16 @@ function Pokedex() {
     () => JSON.parse(localStorage.getItem("informacoesPokemon")) || []
   );
   const [favoritar, setFavoritar] = useState(false);
+  const [modoEscuro, setModoEscuro] = useState(
+    () => JSON.parse(localStorage.getItem("modoEscuro")) || false
+  );
 
   async function fetchPokemons(input) {
-    if (input === "") {
-      throw new Error("Pokémon não encontrado");
-    }
     input.preventDefault();
+
+    if (pokemonDigitado.trim() == "") {
+      setErro("Pokémon não encontrado");
+    }
 
     try {
       const resposta = await fetch(
@@ -53,6 +57,18 @@ function Pokedex() {
     }
   }, [favoritar]);
 
+  // Modo Escuro
+  localStorage.setItem("modoEscuro", JSON.stringify(modoEscuro));
+
+  useEffect(() => {
+    if (modoEscuro == true) {
+      document.body.classList.add('escuro');
+    } else {
+      document.body.classList.remove('escuro');
+    }
+  }, [modoEscuro]);
+  
+
   if (erro) return <h2>Erro: {erro}</h2>;
 
   return (
@@ -62,6 +78,11 @@ function Pokedex() {
 
       <div className="Pesquisa">
         <h2>Capture um pokémon!</h2>
+
+        <button onClick={() => setModoEscuro(!modoEscuro)}>
+          {modoEscuro ? "Modo Claro" : "Modo Escuro"}
+        </button>
+
         <form onSubmit={fetchPokemons}>
           <input
             type="text"
