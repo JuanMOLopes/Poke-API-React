@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
-function Pokedex() {
+function Favoritos() {
   const [informacoesPokemon, setInformacoesPokemon] = useState(
     () => JSON.parse(localStorage.getItem("informacoesPokemon")) || []
   );
@@ -87,4 +87,4 @@ function Pokedex() {
   );
 }
 
-export default Pokedex;
+export default Favoritos;
