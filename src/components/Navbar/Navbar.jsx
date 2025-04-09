@@ -6,7 +6,7 @@ function Navbar() {
           <a href="/">
             Pokédex
           </a>
-          <a href="/favoritos">
+          <a href="/Favoritos">
             Favoritos
           </a>
     </nav>
