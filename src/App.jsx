@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Pokedex />} />
-          <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/Favoritos" element={<Favoritos />} />
         </Routes>
       </BrowserRouter>
     </>
