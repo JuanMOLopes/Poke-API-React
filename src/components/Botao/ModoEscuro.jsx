@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 function ModoEscuro() {
     const [btnAtivo, setBtnAtivo] = useState(true)
-
-    useEffect(() => { }, [btnAtivo])
 
     return (
         <>
